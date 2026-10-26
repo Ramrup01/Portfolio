@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Contact</title>
+  <link href="assets/img/favicon.ico" rel="icon" type="image/x-icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+<body class="contact-page">
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      <div class="header-social-links">
+        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    <section id="contact" class="contact section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-5">
+            <div class="info-box" data-aos="fade-up" data-aos-delay="200">
+              <h3>Contact Info</h3>
+              <div class="info-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box"><i class="bi bi-geo-alt"></i></div>
+                <div class="content">
+                  <h4>Our Location</h4>
+                  <p>Saket, New Delhi</p>
+                </div>
+              </div>
+              <div class="info-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon-box"><i class="bi bi-telephone"></i></div>
+                <div class="content">
+                  <h4>Phone Number</h4>
+                  <p>+91 8789451534</p>
+                </div>
+              </div>
+              <div class="info-item" data-aos="fade-up" data-aos-delay="500">
+                <div class="icon-box"><i class="bi bi-envelope"></i></div>
+                <div class="content">
+                  <h4>Email Address</h4>
+                  <p>ramroopsinghrs01@gmail.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
+              <h3>Get In Touch</h3>
+              <form id="contactForm">
+                <div class="row gy-4">
+                  <div class="col-md-6">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                  </div>
+                  <div class="col-12">
+                    <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                  </div>
+                  <div class="col-12">
+                    <textarea name="message" class="form-control" rows="6" placeholder="Message" required></textarea>
+                  </div>
+                  <div class="col-12 text-center">
+                    <div class="form-status loading">Sending...</div>
+                    <div class="form-status error-message"></div>
+                    <div class="form-status sent-message">Your message has been sent. Thank you!</div>
+                    <button type="submit" class="btn">Send Message</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+  const ACCESS_KEY = "46782955-1623-427a-963a-150d3466df61"; // <-- put your real key here
+
+  document.getElementById('contactForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const form = this;
+    const loading = form.querySelector('.loading');
+    const sent = form.querySelector('.sent-message');
+    const error = form.querySelector('.error-message');
+    const btn = form.querySelector('button[type="submit"]');
+
+    loading.style.display = 'block';
+    sent.style.display = 'none';
+    error.style.display = 'none';
+    btn.disabled = true;
+
+    const payload = {
+      access_key: ACCESS_KEY,
+      name: form.name.value,
+      email: form.email.value,
+      subject: form.subject.value,
+      message: form.message.value,
+      from_name: "Portfolio Contact Form"
+    };
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+      loading.style.display = 'none';
+
+      if (data.success) {
+        sent.style.display = 'block';
+        form.reset();
+      } else {
+        error.textContent = 'Error: ' + (data.message || 'Submission failed');
+        error.style.display = 'block';
+        console.error('Web3Forms response:', data);
+      }
+    } catch (err) {
+      loading.style.display = 'none';
+      error.textContent = 'Error: ' + err.message;
+      error.style.display = 'block';
+      console.error(err);
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>
+
+
+</body>
+</html>
